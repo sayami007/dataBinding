@@ -2,31 +2,51 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
+    <data class="AddBinding">
 
         <variable
             name="model"
-            type="np.com.manandharbibesh.finalapp.handler.ModelBinding" />
+            type="np.com.manandharbibesh.finalapp.model.AddModel" />
 
         <variable
-            name="button"
-            type="np.com.manandharbibesh.finalapp.handler.ClickPresenter" />
-    </data>
+            name="presenter"
+            type="np.com.manandharbibesh.finalapp.viewModel.AddPresenter" />
 
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={model.name}"/>
-        <Button
-            android:layout_width="wrap_content"
+            android:text="@={model.num1}" />
+
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{(view)->button.onClick(view,model.name)}"
-            android:text="Click" />
+            android:text="@={model.num2}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->presenter.addition(model.num1,model.num2)}"
+                android:text="Result" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{presenter.finalValue}" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </layout>

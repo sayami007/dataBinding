@@ -1,26 +1,33 @@
-package np.com.manandharbibesh.finalapp.handler;
+package np.com.manandharbibesh.finalapp.model;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
-import android.databinding.BindingBuildInfo;
 import android.databinding.InverseBindingAdapter;
-import android.util.Log;
+import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
 
 /**
  * Created by Bibesh on 7/20/17.
  */
 
-public class ModelBinding extends BaseObservable {
-    private int name;
+public class AddModel {
 
-    public int getName() {
-        return name;
+    private int num1;
+    private int num2;
+
+    public int getNum1() {
+        return num1;
     }
 
-    public void setName(int name) {
-        this.name = name;
+    public void setNum1(int num1) {
+        this.num1 = num1;
+    }
+
+    public int getNum2() {
+        return num2;
+    }
+
+    public void setNum2(int num2) {
+        this.num2 = num2;
     }
 
     @BindingAdapter("android:text")
@@ -33,7 +40,6 @@ public class ModelBinding extends BaseObservable {
         try {
             return Integer.parseInt(view.getText().toString());
         } catch (Exception err) {
-            Log.v("ER", err.getMessage());
             return 0;
         }
     }
