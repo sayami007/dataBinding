@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class ClickPresenter {
 
-    public void onClick(View v) {
-        Toast.makeText(v.getContext(), "Hello", Toast.LENGTH_SHORT).show();
+    public void onClick(View v, int value) {
+        Toast.makeText(v.getContext(), "Hello" + value, Toast.LENGTH_SHORT).show();
     }
 }
